@@ -21,7 +21,7 @@ int colorBar[COLOR_BAR_ROWS][COLOR_BAR_COLS] = {
                                                     { GRY3, RED4, GRN4, YEL4, },
                                                     { BLU1, RED1, GRN1, YEL1, },
                                                     { BLU2, RED2, GRN2, YEL2, },
-                                                    { BLU3, RED3, GRN3, YEL3, },
+                                                    { BLU3, RED3, GRN3, WHT, },
                                                 };
 
 #endif

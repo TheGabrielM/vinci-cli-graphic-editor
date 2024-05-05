@@ -263,9 +263,6 @@ void fn_change_colors(CURSOR *cursor, int color){
      
      // Changes cursor color
      cursor->style.background_color = color ? color : 0;
-     
-     // Moves cursor to the same place
-     moveCursor(cursor, cursor->axis);
 }
 
 void fn_mouse_click(CURSOR *cursor, POSITION next){

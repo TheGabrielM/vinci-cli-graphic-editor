@@ -92,6 +92,7 @@ int onColorBar(POSITION axis){
     {
       for(j = 0; j < COLOR_BAR_COLS; j++)
       {
+         // If axis is in the same position as color option
          if(p[i][j].axis.x == axis.x && p[i][j].axis.y == axis.y)
             return p[i][j].style.background_color;
       }
