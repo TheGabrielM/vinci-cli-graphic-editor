@@ -225,6 +225,13 @@ void fn_cursor_right(CURSOR *cursor){
 }
 
 void moveCursor(CURSOR *cursor, POSITION next){
+
+    // Limits canvas area
+    if(next.x > DEFAULT_CANVAS_WIDTH || next.y > DEFAULT_CANVAS_HEIGHT)
+        return;
+
+    if(next.x < 0 || next.y < 0)
+        return;
     
     // Re-creates previous cursor position pixel
     PIXEL previous_pixel = canvas->last_updated;
@@ -240,7 +247,7 @@ void moveCursor(CURSOR *cursor, POSITION next){
     
     // Creates new pixel to render
     PIXEL pixel;
-    pixel.style.background_color = cursor->style.background_color ? cursor->style.background_color : REDB; // ANSI color code
+    pixel.style.background_color = cursor->style.background_color ? cursor->style.background_color : BCK; // ANSI color code
     pixel.style.font_color = cursor->style.font_color ? cursor->style.font_color : WHT; // ANSI color code
     pixel.style.text = cursor->style.text ? cursor->style.text : ' '; // Spacebar code;
     pixel.axis.x = cursor->axis.x;
@@ -250,22 +257,17 @@ void moveCursor(CURSOR *cursor, POSITION next){
     gotoxy(next.x, next.y);
 
     print_pixel(pixel);
-    
-    // Displays cursor background color
-    gotoxy(20, 30);
-    printf(" background_color: %d ", cursor->style.background_color);
 }
 
-void fn_change_colors(CURSOR *cursor){
+void fn_change_colors(CURSOR *cursor, int color){
      
      // Changes cursor color
-     cursor->style.background_color = 102;
-     
-     // Moves cursor to the same place
-     moveCursor(cursor, cursor->axis);
+     cursor->style.background_color = color ? color : 0;
 }
 
 void fn_mouse_click(CURSOR *cursor, POSITION next){
+
+    // Inside canvas
 
     // Re-creates previous cursor position pixel
     PIXEL previous_pixel = canvas->last_updated;
@@ -277,4 +279,14 @@ void fn_mouse_click(CURSOR *cursor, POSITION next){
 
     // Moves cursor to the next place
     moveCursor(cursor, next);
+
+    // Outside canvas
+
+    // Color bar
+    int newColor = onColorBar(next);
+
+    if(newColor > 0)
+        fn_change_colors(cursor, newColor);
+
+    //
 }

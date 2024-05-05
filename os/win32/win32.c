@@ -17,6 +17,8 @@ void loadOSDefinitions(){
     if (!SetConsoleMode(hStdin, fdwMode) )
         printf("error-enabling-window");
 
+    // Sets window size
+    //
 }
 
 int getInput(CURSOR *cursor){
