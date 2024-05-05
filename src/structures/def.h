@@ -2,8 +2,8 @@
 #define __STRUCTURES_H__
 
 // Canvas
-#define DEFAULT_CANVAS_WIDTH 120
-#define DEFAULT_CANVAS_HEIGHT 29
+#define DEFAULT_CANVAS_WIDTH 60
+#define DEFAULT_CANVAS_HEIGHT 15
 
 // Custom data types
 typedef struct POSITION {

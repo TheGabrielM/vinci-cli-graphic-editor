@@ -225,6 +225,10 @@ void fn_cursor_right(CURSOR *cursor){
 }
 
 void moveCursor(CURSOR *cursor, POSITION next){
+
+    // Limits canvas area
+    if(next.x > DEFAULT_CANVAS_WIDTH || next.y > DEFAULT_CANVAS_HEIGHT)
+        return;
     
     // Re-creates previous cursor position pixel
     PIXEL previous_pixel = canvas->last_updated;
