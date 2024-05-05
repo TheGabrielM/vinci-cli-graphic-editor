@@ -3,18 +3,15 @@
 
 #include "../structures/def.h"
 
-// Background Colors
+// Colors
 #define CANVAS_BORDER_COLOR 250
 #define CANVAS_FONT_COLOR 15
 
-#define BCKB 40
-#define REDB 41
-#define GRNB 42
-#define YELB 43
-
-// Font Colors
-#define BCK 30
-#define WHT 37
+#define BCK 0
+#define RED 160
+#define GRN 120
+#define YEL 228
+#define WHT 15
 
 // Functions headers
 void createCanvas();

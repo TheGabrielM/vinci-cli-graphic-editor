@@ -36,7 +36,7 @@ void createCanvas(){
             pixel.axis.x = j;
             pixel.axis.y = i;
 
-            pixel.style.background_color = YELB;
+            pixel.style.background_color = WHT;
             pixel.style.font_color = WHT;
             pixel.style.text = 32;
 

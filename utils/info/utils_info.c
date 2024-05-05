@@ -12,7 +12,7 @@ void showCursorAxis(POSITION axis){
      gotoxy(0, 30);
      
      // Sets background color to black
-     printf("%d ", BCKB);
+     printf("%d ", BCK);
      
      // Shows cursor xy position
      printf("x: %d y: %d   ", axis.x, axis.y);

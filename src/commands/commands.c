@@ -229,6 +229,9 @@ void moveCursor(CURSOR *cursor, POSITION next){
     // Limits canvas area
     if(next.x > DEFAULT_CANVAS_WIDTH || next.y > DEFAULT_CANVAS_HEIGHT)
         return;
+
+    if(next.x < 0 || next.y < 0)
+        return;
     
     // Re-creates previous cursor position pixel
     PIXEL previous_pixel = canvas->last_updated;
@@ -244,7 +247,7 @@ void moveCursor(CURSOR *cursor, POSITION next){
     
     // Creates new pixel to render
     PIXEL pixel;
-    pixel.style.background_color = cursor->style.background_color ? cursor->style.background_color : REDB; // ANSI color code
+    pixel.style.background_color = cursor->style.background_color ? cursor->style.background_color : BCK; // ANSI color code
     pixel.style.font_color = cursor->style.font_color ? cursor->style.font_color : WHT; // ANSI color code
     pixel.style.text = cursor->style.text ? cursor->style.text : ' '; // Spacebar code;
     pixel.axis.x = cursor->axis.x;
