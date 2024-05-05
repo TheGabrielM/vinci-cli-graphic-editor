@@ -285,7 +285,7 @@ void fn_mouse_click(CURSOR *cursor, POSITION next){
     // Color bar
     int newColor = onColorBar(next);
 
-    if(newColor > 0)
+    if(newColor >= 0)
         fn_change_colors(cursor, newColor);
 
     //
