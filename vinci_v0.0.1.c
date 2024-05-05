@@ -16,7 +16,7 @@ int main(){
     
     // Sets default position
     cursor.axis.x = 0;
-    cursor.axis.y = 0   ;
+    cursor.axis.y = 0;      
     
     // Sets default color
     cursor.style.background_color = BCK;
@@ -26,13 +26,13 @@ int main(){
     
     // Moves cursor to initial position
     // moveCursor(&cursor, cursor.axis);
+    
+    // Show infos
+    showColorBar(canvas->width + 1, canvas->height + 1); // Includes canvas border
 
     // Gets the user input
     while(1==1)
-    {
-       // Show infos
-       //
-       
+    {  
        // Executes input function
        FUNCTION_SIGNATURE *execute = get_command(&cursor);
        execute(&cursor);

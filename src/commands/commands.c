@@ -259,16 +259,18 @@ void moveCursor(CURSOR *cursor, POSITION next){
     print_pixel(pixel);
 }
 
-void fn_change_colors(CURSOR *cursor){
+void fn_change_colors(CURSOR *cursor, int color){
      
      // Changes cursor color
-     cursor->style.background_color = 102;
+     cursor->style.background_color = color ? color : 0;
      
      // Moves cursor to the same place
      moveCursor(cursor, cursor->axis);
 }
 
 void fn_mouse_click(CURSOR *cursor, POSITION next){
+
+    // Inside canvas
 
     // Re-creates previous cursor position pixel
     PIXEL previous_pixel = canvas->last_updated;
@@ -280,4 +282,14 @@ void fn_mouse_click(CURSOR *cursor, POSITION next){
 
     // Moves cursor to the next place
     moveCursor(cursor, next);
+
+    // Outside canvas
+
+    // Color bar
+    int newColor = onColorBar(next);
+
+    if(newColor > 0)
+        fn_change_colors(cursor, newColor);
+
+    //
 }

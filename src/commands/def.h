@@ -24,7 +24,7 @@ void fn_cursor_down(CURSOR *cursor);
 void fn_cursor_left(CURSOR *cursor);
 void fn_cursor_right(CURSOR *cursor);
 
-void fn_change_colors(CURSOR *cursor);
+void fn_change_colors(CURSOR *cursor, int color);
 
 void fn_mouse_click(CURSOR *cursor, POSITION next);
 
