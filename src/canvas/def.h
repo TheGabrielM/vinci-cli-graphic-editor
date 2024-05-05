@@ -4,6 +4,9 @@
 #include "../structures/def.h"
 
 // Background Colors
+#define CANVAS_BORDER_COLOR 250
+#define CANVAS_FONT_COLOR 15
+
 #define BCKB 40
 #define REDB 41
 #define GRNB 42

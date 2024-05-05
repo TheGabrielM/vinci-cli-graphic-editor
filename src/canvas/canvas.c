@@ -23,14 +23,14 @@ void createCanvas(){
     PIXEL pixel;
 
     // Fills canvas' body matrix
+    int i;
+    int j;
     
     // Rows
-    int i = 0;
-    for(i; i < canvas->height; i++)
+    for(i = 0; i < canvas->height; i++)
     {
         // Columns
-        int j = 0;
-        for(j; j < canvas->width; j++)
+        for(j = 0; j < canvas->width; j++)
         {
             // Assigns empty pixel default specs
             pixel.axis.x = j;
@@ -46,9 +46,10 @@ void createCanvas(){
         }
     }   
 
-    // Displays total pixels in canvas
-    // gotoxy(15, 30);
-    // printf("%d", canvas_SIZE);
+    // Shows the canvas' border
+    POSITION border = { .x=j, .y=i };
+
+    showCanvasBorder(border);
 }
      
 void print_pixel(PIXEL pixel){
@@ -56,6 +57,11 @@ void print_pixel(PIXEL pixel){
     // Renders pixel on terminal screen
     printf(DEFAULT_PIXEL_RENDERING_STRING, (pixel.style.background_color), (pixel.style.font_color), (pixel.style.text));
                             
+
+    // Pixel rendering outside the canvas (interface graphics) should not be counted
+    if(pixel.axis.x = 0 && pixel.axis.y == 0)
+        return;
+
     // Assigns new rendered pixel to canvas
     canvas->last_updated = canvas->body[pixel.axis.y][pixel.axis.x];
     canvas->body[pixel.axis.y][pixel.axis.x] = pixel;

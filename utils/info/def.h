@@ -5,5 +5,6 @@
 
 // Function Headers
 void showCursorAxis(POSITION axis);
+void showCanvasBorder(POSITION axis);
 
 #endif

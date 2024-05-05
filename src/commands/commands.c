@@ -254,10 +254,6 @@ void moveCursor(CURSOR *cursor, POSITION next){
     gotoxy(next.x, next.y);
 
     print_pixel(pixel);
-    
-    // Displays cursor background color
-    gotoxy(20, 30);
-    printf(" background_color: %d ", cursor->style.background_color);
 }
 
 void fn_change_colors(CURSOR *cursor){
